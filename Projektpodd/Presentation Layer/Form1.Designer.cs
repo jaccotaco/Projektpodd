@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.listPodd = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.lblUrl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLaggTillPodd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -51,6 +51,10 @@
             this.listPodd.UseCompatibleStateImageBehavior = false;
             this.listPodd.View = System.Windows.Forms.View.Details;
             this.listPodd.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Namn";
             // 
             // textBox1
             // 
@@ -103,10 +107,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "label3";
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Namn";
-            // 
             // btnLaggTillPodd
             // 
             this.btnLaggTillPodd.Location = new System.Drawing.Point(12, 258);
@@ -122,9 +122,10 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(349, 317);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.label1.Text = "ef";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
