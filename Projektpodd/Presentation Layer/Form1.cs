@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel.Syndication;
 
 namespace Projektpodd
 {
@@ -15,6 +16,11 @@ namespace Projektpodd
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
