@@ -35,15 +35,20 @@
             this.lblUrl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnLaggTillPodd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listPodd
             // 
+            this.listPodd.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
             this.listPodd.Location = new System.Drawing.Point(12, 12);
             this.listPodd.Name = "listPodd";
             this.listPodd.Size = new System.Drawing.Size(551, 191);
             this.listPodd.TabIndex = 0;
             this.listPodd.UseCompatibleStateImageBehavior = false;
+            this.listPodd.View = System.Windows.Forms.View.Details;
             this.listPodd.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // textBox1
@@ -96,11 +101,26 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "label3";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Namn";
+            // 
+            // btnLaggTillPodd
+            // 
+            this.btnLaggTillPodd.Location = new System.Drawing.Point(12, 258);
+            this.btnLaggTillPodd.Name = "btnLaggTillPodd";
+            this.btnLaggTillPodd.Size = new System.Drawing.Size(132, 23);
+            this.btnLaggTillPodd.TabIndex = 7;
+            this.btnLaggTillPodd.Text = "Lägg till Poddcast";
+            this.btnLaggTillPodd.UseVisualStyleBackColor = true;
+            this.btnLaggTillPodd.Click += new System.EventHandler(this.btnLaggTillPodd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLaggTillPodd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUrl);
@@ -110,6 +130,7 @@
             this.Controls.Add(this.listPodd);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,6 +145,8 @@
         private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button btnLaggTillPodd;
     }
 }
 
