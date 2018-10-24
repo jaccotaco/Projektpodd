@@ -16,20 +16,33 @@ namespace Projektpodd
     public partial class Form1 : Form
     {
         public string podd { get; set; }
+        public object SelectedItem { get; set; }
+
+
         public Form1()
         {
             InitializeComponent();
+            if (File.Exists("ListBoxItems.txt"))
+            {
+                using (StreamReader sr = new StreamReader("ListBoxItems.txt"))
+                {
+                    while (sr.Peek() != -1)
+                    {
+                        lstKategorier.Items.Add(sr.ReadLine());
+                    }
+                }
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void btnLaggTillPodd_Click(object sender, EventArgs e)
@@ -50,37 +63,45 @@ namespace Projektpodd
                     listPodd.Items.Add(namn);
 
                 }
-            } catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Inte en giltig URL");
             }
-            
+
         }
 
         public void textBox1_TextChanged(object sender, EventArgs e)
         {
             podd = textBox1.Text;
-            
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void nyKategori_Click(object sender, EventArgs e)
         {
-
+            lstKategorier.Items.Add(txtBoxKategorier.Text);
+            using (StreamWriter sw = new StreamWriter("ListBoxItems.txt", true))
+            {
+                sw.WriteLine(txtBoxKategorier);
+            }
+            this.txtBoxKategorier.Clear();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void lstKategorier_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string curItem = lstKategorier.SelectedItems.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
 
+           
         }
     }
 }
+

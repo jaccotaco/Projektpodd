@@ -41,12 +41,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.lstKategorier = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtBoxKategorier = new System.Windows.Forms.TextBox();
+            this.nyKategori = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listPodd
@@ -106,7 +107,6 @@
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Uppdateringsintervall";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -116,7 +116,6 @@
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Kategori";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnLaggTillPodd
             // 
@@ -164,13 +163,17 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Podcast \"\" Avsnitt:";
             // 
-            // listView2
+            // lstKategorier
             // 
-            this.listView2.Location = new System.Drawing.Point(583, 32);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(242, 191);
-            this.listView2.TabIndex = 12;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.lstKategorier.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.lstKategorier.Location = new System.Drawing.Point(583, 32);
+            this.lstKategorier.Name = "lstKategorier";
+            this.lstKategorier.Size = new System.Drawing.Size(242, 191);
+            this.lstKategorier.TabIndex = 12;
+            this.lstKategorier.UseCompatibleStateImageBehavior = false;
+            this.lstKategorier.View = System.Windows.Forms.View.Details;
+            this.lstKategorier.SelectedIndexChanged += new System.EventHandler(this.lstKategorier_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -181,21 +184,23 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Kategorier";
             // 
-            // textBox2
+            // txtBoxKategorier
             // 
-            this.textBox2.Location = new System.Drawing.Point(586, 230);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 20);
-            this.textBox2.TabIndex = 14;
+            this.txtBoxKategorier.Location = new System.Drawing.Point(586, 230);
+            this.txtBoxKategorier.Name = "txtBoxKategorier";
+            this.txtBoxKategorier.Size = new System.Drawing.Size(239, 20);
+            this.txtBoxKategorier.TabIndex = 14;
+            this.txtBoxKategorier.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button3
+            // nyKategori
             // 
-            this.button3.Location = new System.Drawing.Point(586, 257);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Ny";
-            this.button3.UseVisualStyleBackColor = true;
+            this.nyKategori.Location = new System.Drawing.Point(586, 257);
+            this.nyKategori.Name = "nyKategori";
+            this.nyKategori.Size = new System.Drawing.Size(75, 23);
+            this.nyKategori.TabIndex = 15;
+            this.nyKategori.Text = "Ny";
+            this.nyKategori.UseVisualStyleBackColor = true;
+            this.nyKategori.Click += new System.EventHandler(this.nyKategori_Click);
             // 
             // button4
             // 
@@ -216,6 +221,10 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Kategorier";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,10 +232,10 @@
             this.ClientSize = new System.Drawing.Size(1116, 601);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.nyKategori);
+            this.Controls.Add(this.txtBoxKategorier);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.lstKategorier);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button2);
@@ -262,12 +271,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lstKategorier;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtBoxKategorier;
+        private System.Windows.Forms.Button nyKategori;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 
