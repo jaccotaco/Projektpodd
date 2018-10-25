@@ -18,7 +18,7 @@ namespace Projektpodd
         public string podd { get; set; }
         public object SelectedItem { get; set; }
         public string beskrivning { get; set; }
-        
+        public string feed { get; set; }
 
 
         public Form1()
@@ -52,55 +52,75 @@ namespace Projektpodd
 
         public void btnLaggTillPodd_Click(object sender, EventArgs e)
         {
+            /*
+            string url = podd;
+            var reader = XmlReader.Create(url);
+            reader.ReadToDescendant("item");
+            do
+            {
+                reader.ReadStartElement("item");
+                var title = reader.ReadElementContentAsString();
+                Console.WriteLine(title);
+            } while (reader.ReadToNextSibling("item"));
+
+            
+            try
+                { 
+            string url = podd;
+            var reader = XmlReader.Create(url);
+            reader.ReadToDescendant("item");
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                reader.Close();
+                
+
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    string avsnitt = 
+                    listPodd.Items.Add(avsnitt);
+                } 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Inte en giltig URL");
+            }
+
+            
             try
             {
                 string url = podd;
-
                 XmlReader reader = XmlReader.Create(url);
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 reader.Close();
                 foreach (SyndicationItem item in feed.Items)
                 {
-
-
-
-                    string avsnitt = item.Title.Text;
-
-
-                    listPodd.Items.Add(avsnitt);
+                    string avsnitt = item.Summary.Text;
+                    lstBeskrivning.Items.Add(avsnitt);
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Inte en giltig URL");
+            }
 
+            */
+            try
+            {
 
+                string url = podd;
+                XmlReader reader = XmlReader.Create(url);
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                reader.Close();
 
+                var hej = feed.Title.Text;
+                listPodd.Items.Add(hej);
                 
             }
-            
-            
             catch (Exception)
             {
                 MessageBox.Show("Inte en giltig URL");
             }
+            
 
-            try
-            {
-                string url = podd;
-
-                XmlReader reader = XmlReader.Create(url);
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
-                reader.Close();
-                foreach (SyndicationItem item in feed.Items)
-                {
-
-                    string avsnitt = item.Summary.Text;
-
-                    listView1.Items.Add(avsnitt);
-
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Inte en giltig URL");
-            }
         }
 
         public void textBox1_TextChanged(object sender, EventArgs e)
@@ -130,6 +150,7 @@ namespace Projektpodd
                 string[] tokens = line.Split(',');
                 comboBox2.Items.Add(tokens[0]);
             }
+            
 
         }
 
@@ -148,10 +169,20 @@ namespace Projektpodd
 
             foreach (var lvi in lstKategorier.SelectedItems.Cast<ListViewItem>()) lstKategorier.Items.Remove(lvi);
             File.WriteAllLines("ListBoxItems.xml", lstKategorier.Items.Cast<ListViewItem>().Select(lvi => lvi.Text + "," + lvi.SubItems[0].Text));
-
+            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
