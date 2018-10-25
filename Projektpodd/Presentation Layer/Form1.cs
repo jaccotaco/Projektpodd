@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using System.IO;
+using Projektpodd.Presentation_Layer;
 
 namespace Projektpodd
 {
@@ -19,6 +20,7 @@ namespace Projektpodd
         public object SelectedItem { get; set; }
         public string beskrivning { get; set; }
         public string feed { get; set; }
+        private poddcastGet Podd = new poddcastGet();
 
 
         public Form1()
@@ -52,6 +54,23 @@ namespace Projektpodd
 
         public void btnLaggTillPodd_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+
+                string url = podd;
+                XmlReader reader = XmlReader.Create(url);
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                reader.Close();
+
+                var hej = feed.Title.Text;
+                listPodd.Items.Add(hej);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Inte en giltig URL");
+            }
             /*
             string url = podd;
             var reader = XmlReader.Create(url);
@@ -103,23 +122,8 @@ namespace Projektpodd
             }
 
             */
-            try
-            {
 
-                string url = podd;
-                XmlReader reader = XmlReader.Create(url);
-                SyndicationFeed feed = SyndicationFeed.Load(reader);
-                reader.Close();
 
-                var hej = feed.Title.Text;
-                listPodd.Items.Add(hej);
-                
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Inte en giltig URL");
-            }
-            
 
         }
 
@@ -185,6 +189,48 @@ namespace Projektpodd
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+            String text = listView1.SelectedItems[0].Text;
+
+            try
+            {
+                string url = podd;
+                XmlReader reader = XmlReader.Create(url);
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                reader.Close();
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    string avsnitt = item.Summary.Text;
+                    lstBeskrivning.Items.Add(avsnitt);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Inte en giltig URL");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = podd;
+                XmlReader reader = XmlReader.Create(url);
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                reader.Close();
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    string avsnitt = item.Title.Text;
+                    listView1.Items.Add(avsnitt);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Inte en giltig URL");
+            }
         }
     }
 }
