@@ -40,15 +40,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.lstKategorier = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxKategorier = new System.Windows.Forms.TextBox();
             this.nyKategori = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lstBeskrivning = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listPodd
@@ -157,6 +158,11 @@
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Avsnitt";
             // 
             // label1
             // 
@@ -178,6 +184,10 @@
             this.lstKategorier.UseCompatibleStateImageBehavior = false;
             this.lstKategorier.View = System.Windows.Forms.View.Details;
             this.lstKategorier.SelectedIndexChanged += new System.EventHandler(this.lstKategorier_SelectedIndexChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Kategorier";
             // 
             // label4
             // 
@@ -225,19 +235,21 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // columnHeader2
+            // lstBeskrivning
             // 
-            this.columnHeader2.Text = "Kategorier";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Avsnitt";
+            this.lstBeskrivning.FormattingEnabled = true;
+            this.lstBeskrivning.Location = new System.Drawing.Point(668, 331);
+            this.lstBeskrivning.Name = "lstBeskrivning";
+            this.lstBeskrivning.Size = new System.Drawing.Size(303, 212);
+            this.lstBeskrivning.TabIndex = 18;
+            this.lstBeskrivning.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 601);
+            this.Controls.Add(this.lstBeskrivning);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.nyKategori);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListBox lstBeskrivning;
     }
 }
 
